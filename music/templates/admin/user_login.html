@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>登陆</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../static/admin/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+   <link rel="stylesheet" href="../../static/admin/css/style1.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="oneMusic-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                        <!-- Nav brand -->
+<!--                        <a href="index.html" class="nav-brand"><img src="../../static/admin/img/core-img/logo.png" alt=""></a>-->
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+
+                            <!-- Nav End -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/admin/img/bg-img/breadcumb3.jpg);">
+        <div class="bradcumbContent">
+
+            <h2>登陆</h2>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Login Area Start ##### -->
+    <section class="login-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="login-content">
+<!--                        <h3>欢迎回家！</h3>-->
+                        <!-- Login Form -->
+                        <div class="login-form">
+                            <form action="/user/login" method="post" onsubmit="return checkForm()">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">邮箱</label>
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入电子邮箱">
+                                   </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">密码</label>
+                                    <input type="password" name="password"  id="password" class="form-control" id="exampleInputPassword1" placeholder="输入密码">
+                                </div>
+                                {% if message == 'None'%}
+                                <span> </span>
+                                {% else %}
+                                <span style="color:red">{{message}}</span>
+                                {% endif %}
+                                <br>
+                               <button type="submit" class="btn oneMusic-btn mt-30">登陆</button>
+                                <a href="/user/user_register" style="color:blue;float:right">注册</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Login Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="../../static/admin/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../../static/admin/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../../static/admin/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="../../static/admin/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../../static/admin/js/active.js"></script>
+    <script src="../../static/admin/js/md5.js"></script>
+<script>
+function checkForm(){
+    var pwd= document.getElementById('password');
+<!--    console.log($.md5('1234'))-->
+   pwd.value= hex_md5(pwd.value);
+   console.log(hex_md5(pwd.value))
+    return 1;
+}
+</script>
+</body>
+
+</html>

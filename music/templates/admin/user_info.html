@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>音乐</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../static/admin/css/style1.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="oneMusic-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                        <!-- Nav brand -->
+                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                          <li><a href="/user/index">首页</a></li>
+                                    <li><a href="/user/albums_store">专辑</a></li>
+                                    <li><a href="/user/user_info">个人中心</a></li>
+                                    <li><a href="/user/login" style="color:blue">退出登陆</a></li>
+
+                                </ul>
+                                <!-- Login/Register & Cart Button -->
+                               
+                            </div>
+                            <!-- Nav End -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../../static/admin/img/bg-img/breadcumb3.jpg);">
+        <div class="bradcumbContent">
+            <p></p>
+            <h2>个人中心</h2>
+        </div>
+    </section>
+    <section class="miscellaneous-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- ***** Weeks Top ***** -->
+                <div class="col-12 col-lg-4">
+                    <div class="weeks-top-area mb-100" style="background-color: #f5f9fa;">
+                        <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
+         <p>最近收听</p>
+
+                        </div>
+
+                        <!-- Single Top Item -->
+                        {% for music in data.history[:5]%}
+                        <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
+                            <div class="thumbnail">
+                                <a href="/user/song?song_id={{music.music.id}}"><img src="{{music.music.ext3}}" alt=""></a>
+                            </div>
+                            <div class="content-">
+                                <h6>{{music.music.name}}</h6>
+                                <p>{{music.music.ext1}}</p>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="new-hits-area mb-100" style="    width: 600px;border: 0px solid #d8d8d8;">
+                        <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
+                            <h2>个人基本信息</h2>
+
+                        </div>
+
+
+                        <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                            <div class="first-part d-flex align-items-center">
+                                <div class="thumbnail">
+                                </div>
+                                <div class="content-" style="height:50px">
+                                    昵称：{{data.user.name}}
+                                </div>
+                            </div>
+
+                        </div>
+
+                         <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                            <div class="first-part d-flex align-items-center">
+                                <div class="thumbnail">
+                                </div>
+                                <div class="content-" style="height:50px">
+                                    邮箱：{{data.user.e_mail}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                            <div class="first-part d-flex align-items-center">
+                                <div class="thumbnail">
+                                </div>
+                                <div class="content-" style="height:50px">
+                                    角色：普通用户
+                                </div>
+                            </div>
+
+                        </div>
+                         <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                            <div class="first-part d-flex align-items-center">
+                                <div class="thumbnail">
+                                </div>
+                                <div class="content-">
+                                <div style="height:195px"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- ***** Popular Artists ***** -->
+
+            </div>
+        </div>
+    </section>
+    <section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading style-2">
+
+                        <h2>我的收藏</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for music in data.collects %}
+                <!-- Single Album Area -->
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                    <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+                        <div class="album-thumb">
+                            <a href="/user/song?song_id={{music.music.id}}">
+                            <img src="{{music.music.ext3}}" alt="">
+                            </a>
+                        </div>
+                        <div class="album-info">
+
+                            <p>{{music.music.name}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="../../static/admin/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="../../static/admin/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="../../static/admin/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="../../static/admin/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="../../static/admin/js/active.js"></script>
+</body>
+
+</html>
